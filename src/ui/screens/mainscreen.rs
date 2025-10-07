@@ -235,11 +235,11 @@ impl AppScreen for MainScreen {
                     self.inputstate = MainInputState::Menu;
                     Ok(AppScreenEvent::None)
                 }
-                (_, KeyCode::Right | KeyCode::Char('h')) => {
+                (_, KeyCode::Left | KeyCode::Char('h')) => {
                     self.inputstate = MainInputState::Menu;
                     Ok(AppScreenEvent::None)
                 }
-                (_, KeyCode::Enter) => {
+                (_, KeyCode::Right | KeyCode::Enter) => {
                     if let Some(entry) = self.feedentrystate.get_selected() {
                         self.library.borrow_mut().data.set_entry_seen(&entry);
                         self.feedentrystate.set_current_read();
